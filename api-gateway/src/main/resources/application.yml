@@ -3,20 +3,41 @@ server:
 
 spring:
   application:
-    name: gateway-service
+    name: api-gateway
   cloud:
     gateway:
-      routes:
-        - id: ms-curso
-          uri: http://localhost:8081
-          predicates:
-            - Path=/api/cursos/**
-          filters:
-            - AddRequestHeader=Usuario, Aaron
+      server:
+        webflux:
+          routes:
+            - id: ms-curso
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/cursos/**
 
-        - id: ms-matricula
-          uri: http://localhost:8082
-          predicates:
-            - Path=/api/matriculas/**
-          filters:
-            - AddRequestHeader=Usuario, Aaron
+            - id: ms-matricula
+              uri: http://localhost:8082
+              predicates:
+                - Path=/api/matriculas/**
+
+            - id: openapi-curso
+              uri: http://localhost:8081
+              predicates:
+                - Path=/v3/api-docs/curso
+              filters:
+                - RewritePath=/v3/api-docs/curso, /v3/api-docs
+
+            - id: openapi-matricula
+              uri: http://localhost:8082
+              predicates:
+                - Path=/v3/api-docs/matricula
+              filters:
+                - RewritePath=/v3/api-docs/matricula, /v3/api-docs
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: ms-curso
+        url: /v3/api-docs/curso
+      - name: ms-matricula
+        url: /v3/api-docs/matricula
