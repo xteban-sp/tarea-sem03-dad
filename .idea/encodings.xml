@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-curso/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-matricula/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-register/src/main/java" charset="UTF-8" />
   </component>
 </project>

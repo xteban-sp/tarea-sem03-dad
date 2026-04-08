@@ -9,15 +9,21 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="service-register" />
-        <module name="config-server" />
-        <module name="service-registry" />
+        <module name="ms-matricula" />
+        <module name="ms-curso" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-server" target="21" />
+      <module name="service-registry" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="config-server" options="-parameters" />
+      <module name="ms-curso" options="-parameters" />
+      <module name="ms-matricula" options="-parameters" />
       <module name="service-register" options="-parameters" />
       <module name="service-registry" options="-parameters" />
     </option>
